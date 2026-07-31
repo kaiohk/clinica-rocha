@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Noto_Serif } from "next/font/google";
+import { Sora, Roboto } from "next/font/google";
 import "./globals.css";
 
-const notoSerif = Noto_Serif({
-  weight: ["400", "600", "700", "800"],
-  variable: "--font-noto-serif",
+const sora = Sora({
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-sora",
+  subsets: ["latin"],
+});
+
+const roboto = Roboto({
+  weight: ["400", "500", "700", "900"],
+  variable: "--font-roboto",
   subsets: ["latin"],
 });
 
@@ -20,7 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`min-h-full ${notoSerif.className}`}>{children}</body>
+      <body className={`min-h-full ${sora.className} ${roboto.className}`}>
+        {children}
+      </body>
     </html>
   );
 }
